@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Eastern Artefacts</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/mycss.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    
+    <script>
+     	var last;
+     	var info= new Array('Puzzle','Frog Knocker','Clay Vase','Coloured Oil Lamps',
+     			   'Jewel Puzzle Box','Chess Set','Beaded Decorative Box');
+     	$(document).ready(function(){
+        	document.getElementById('img-1').style.background = "yellow";
+        	last=1;
+      	})
+      	function hover(i){
+      		document.getElementById('img-'+i).style.backgroundColor = "yellow";
+      	}
+      	function out(i){
+      		document.getElementById('img-'+i).style.backgroundColor = "white";
+      	}
+		function select(i){
+			document.getElementById('img-'+last).style.background = "white";
+			last = i;
+			document.getElementById('img-'+i).style.background = "yellow";
+			document.getElementById('img-huge').src = "img/Eastern/E"+i+".jpg";
+			document.getElementById('info-huge').innerHTML = info[i-1];
+		}
+			
+	</script>
+   
+  </head>
+  
+  <body>
+  	<div class="container navbar-wrapper" style="margin-top: 20px;">
+      <div class="navbar">
+        <div class="navbar-inner">
+
+          <img class="brand" src="img/Logo-trans.png" class="img-polaroid"/>
+          <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+        </div><!-- /.navbar-inner -->
+      </div><!-- /.navbar -->
+    </div><!-- /.container -->
+    
+    <div class="container">
+    	<div class="row">
+    		<h2 class="featurette-heading span8">Welcome to Eastern Artefacts!</h2>
+    		<a href="main.html"><button class="btn-large btn-info pull-right">Back to Home</button></a>
+    	</div>
+    	<div class="row span2" >
+    		<a href="#"><img src="img/Eastern/E1.jpg" class="img-polaroid" onmouseover="hover(1)" onmouseout="out(1);" onclick="select(1);" id="img-1"/></a>
+    		<a href="#"><img src="img/Eastern/E2.jpg" class="img-polaroid" onmouseover="hover(2)" onmouseout="out(2);" onclick="select(2);" id="img-2"/></a>
+    		<a href="#"><img src="img/Eastern/E3.jpg" class="img-polaroid" onmouseover="hover(3)" onmouseout="out(3);" onclick="select(3);" id="img-3"/></a>
+    		<a href="#"><img src="img/Eastern/E4.jpg" class="img-polaroid" onmouseover="hover(4)" onmouseout="out(4);" onclick="select(4);" id="img-4"/></a>
+    	</div>
+    	
+    	<div class="row span7" >
+    		<img src="img/Eastern/E1.jpg" class="img-rounded span7" id="img-huge"/>
+    		<h2 class="featurette-heading pull-right" id="info-huge">Puzzle</h2>
+    	</div>
+    	
+    	<div class="row span2" >
+    		<a href="#"><img src="img/Eastern/E5.jpg" class="img-polaroid" onmouseover="hover(5)" onmouseout="out(5);" onclick="select(5);" id="img-5"/></a>
+    		<a href="#"><img src="img/Eastern/E6.jpg" class="img-polaroid" onmouseover="hover(6)" onmouseout="out(6);" onclick="select(6);" id="img-6"/></a>
+    		<a href="#"><img src="img/Eastern/E7.jpg" class="img-polaroid" onmouseover="hover(7)" onmouseout="out(7);" onclick="select(7);" id="img-7"/></a>
+    	</div>
+    </div>
+  	
+  </body>
+</html>
