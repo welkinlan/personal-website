@@ -111,7 +111,7 @@
     text-transform: uppercase;
 }
 
-.header-v7 .navbar-default .navbar-nav > li > a:after {
+.header-v7 .navbar-default .navbar-nav > li.list > a:after {
     top: 8px;
     right: 10px;
     color: #444;
@@ -128,6 +128,8 @@
 }
 
 .header-v7 .navbar-default .navbar-nav > li > a:hover,
+.header-v7 .navbar-default .navbar-nav > li > a:active,
+.header-v7 .navbar-default .navbar-nav > li.active > a.active, 
 .header-v7 .navbar-default .navbar-nav > li.active > a {
     color: #72c02c !important;
 }

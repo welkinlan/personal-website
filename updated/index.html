@@ -69,65 +69,65 @@
                 <div class="menu-container">
                     <ul class="nav navbar-nav">
                         <!-- Education -->
-                        <li id="education" class="dropdown active">
-                            <a href="javascript:void(0);" onclick=setCookie('education')>
+                        <li id="education">
+                            <a href="javascript:void(0);" onclick=loadContent('education')>
                                 Education
                             </a>
                         </li>
                         <!-- End Education -->
 
                         <!-- Work -->                        
-                        <li id="work" class="dropdown">
-                            <a href="javascript:void(0);" onclick=setCookie('work')>
+                        <li id="work">
+                            <a href="javascript:void(0);" onclick=loadContent('work')>
                                 Work
                             </a>
                         </li>
                         <!-- End Work -->
 
                         <!-- Projects -->
-                        <li id="projects" class="dropdown">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                        <li id="projects" class="list">
+                            <a id="projects_a" href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                                 Projects
                             </a>
                             <ul class="dropdown-menu">
-                                <li id="research_projects"><a href="javascript:void(0);" onclick=setCookie('research_projects')>Research Projects</a></li>
-                                <li id="academic_projects"><a href="javascript:void(0);" onclick=setCookie('academic_projects')>Academic Projects</a></li>
+                                <li id="research_projects"><a href="javascript:void(0);" onclick=loadContent('research_projects')>Research Projects</a></li>
+                                <li id="academic_projects"><a href="javascript:void(0);" onclick=loadContent('academic_projects')>Academic Projects</a></li>
                             </ul>
                         </li>
                         <!-- End Projects -->
 
                         <!-- Misc Pages -->
-                        <li id="misc" class="dropdown">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                        <li id="misc" class="list">
+                            <a id="misc_a" href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                                 Misc
                             </a>
                             <ul class="dropdown-menu">
-                                <li id="publications"><a href="javascript:void(0);" onclick=setCookie('research_projects')>Publications</a></li>
-                                <li id="honors"><a href="javascript:void(0);" onclick=setCookie('research_projects')>Honors</a></li>
-                                <li id="certificates"><a href="javascript:void(0);" onclick=setCookie('research_projects')>Certificates</a></li>
+                                <li id="publications"><a href="javascript:void(0);" onclick=loadContent('publications')>Publications</a></li>
+                                <li id="honors"><a href="javascript:void(0);" onclick=loadContent('honors')>Honors</a></li>
+                                <li id="certificates"><a href="javascript:void(0);" onclick=loadContent('certificates')>Certificates</a></li>
                             </ul>
                         </li>                    
                         <!-- End Misc Pages -->
 
                         <!-- Resume -->
-                        <li id="resume" class="dropdown">
-                            <a href="javascript:void(0);" onclick=setCookie('resume')>
+                        <li id="resume">
+                            <a href="javascript:void(0);" onclick=loadContent('resume')>
                                 Resume
                             </a>
                         </li>                    
                         <!-- End Resume -->
 
                         <!-- Blog -->
-                        <li id="blog" class="dropdown">
-                            <a href="javascript:void(0);" onclick=setCookie('blog')>
+                        <li id="blog">
+                            <a href="javascript:void(0);" onclick=loadContent('blog')>
                                 Blog
                             </a>
                         </li>                    
                         <!-- End Blog -->
 
                         <!-- About Me -->
-                        <li id="about" class="dropdown">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                        <li id="about">
+                            <a href="javascript:void(0);" onclick=loadContent('about')>
                                 About me
                             </a>
                         </li>                    
@@ -180,32 +180,63 @@
 <script type="text/javascript" src="assets/plugins/jquery/jquery.cookie.js"></script>
 
 <script type="text/javascript">
-    //$("#content").load("http://welkinlan.com"); 
-    document.getElementById("content").innerHTML = 
-    "<iframe src='http://blog.welkinlan.com' width='100%' style='height: 80em; border: none'></iframe>";
-
-    function getCookie(){
-        if($.cookie('clicked')!=null){
-            var c = $.cookie('clicked');
-            var cli= a + '-li';
-            var e = document.getElementById(c);
-            var eli = document.getElementById(ali);
-            e.setAttribute('class','tab-pane fade well in active');
-            eli.setAttribute('class','active');
+    function loadContent(name){
+        switch (name) {
+            case 'education':
+            case 'work':
+            case 'research_projects':
+            case 'academic_projects':
+            case 'publications':
+            case 'honors':
+            case 'certificates':
+            case 'about':
+                $("#content").load(name + ".html");
+                break;
+            case 'resume':
+                //load pdf
+                break;
+            case 'blog':
+                //load external website
+                document.getElementById("content").innerHTML = 
+                "<iframe src='http://blog.welkinlan.com' width='100%' style='height: 60em; border: none'></iframe>";
+                break;
+            default:
+                //default index
+                document.getElementById("content").innerHTML = "<h1>default index</h1>";
+                break;
         }
-        else{
-            var e = document.getElementById("education");
-            var eli = document.getElementById("education-li");
-            e.setAttribute('class','tab-pane fade well in active');
-            eli.setAttribute('class','active');
+
+        if (name!="") {
+            var pre_clicked = $.cookie('pre_clicked');
+            /*reset previous clicked*/
+            //reset parent if existed
+            if (pre_clicked == 'research_projects' || pre_clicked == 'academic_projects') {
+                document.getElementById('projects').setAttribute('class','list');
+                document.getElementById('projects_a').setAttribute('aria-expanded',false);
+            } 
+            else if (pre_clicked == 'publications' || pre_clicked == 'honors' || pre_clicked == 'certificates') {
+                document.getElementById('misc').setAttribute('class','list');
+                document.getElementById('misc_a').setAttribute('aria-expanded',false);
+            }
+            //reset item
+            document.getElementById(pre_clicked).setAttribute('class','');
+            
+            /*set current item*/
+            if (name == 'research_projects' || name == 'academic_projects') {
+                document.getElementById('projects').setAttribute('class','list open');
+                document.getElementById('projects_a').setAttribute('aria-expanded',true);
+            } 
+            else if (name == 'publications' || name == 'honors' || name == 'certificates') {
+                document.getElementById('misc').setAttribute('class','list open');
+                document.getElementById('misc_a').setAttribute('aria-expanded',true);
+            }
+            document.getElementById(name).setAttribute('class','active');
+            
+            //save current item
+            $.cookie('pre_clicked',name);
         }
     }
-    
-    function setCookie(str){
-        $.cookie('clicked',str);
-    }
-
-
+  
     jQuery(document).ready(function() {
         App.init();
         App.initCounter();
@@ -215,6 +246,7 @@
         App.initAnimateDropdown();
         OwlCarousel.initOwlCarousel();
         ProgressBar.initProgressBarHorizontal();
+        loadContent($.cookie('pre_clicked'));
     });
 </script>
 
