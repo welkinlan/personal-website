@@ -57,9 +57,9 @@
                 <!-- Logo -->
                 <div class="logo">
                     <a href="index.html">
-                        <img id="logo-header" src="assets/img//.jpg" alt="Logo">
+                        <img id="logo-header" src="assets/img/avatar.jpg" alt="Logo">
                     </a>
-                    <h2 class="headline-brd">TL</h2>
+                    <h2 class="headline-brd">Tian Lan's Portfilio</h2>
                 </div>
                 <!-- End Logo -->
             </div>
@@ -69,7 +69,7 @@
                 <div class="menu-container">
                     <ul class="nav navbar-nav">
                         <!-- Education -->
-                        <li id="education">
+                        <li id="education" data-toggle="tab">
                             <a href="javascript:void(0);" onclick=loadContent('education')>
                                 Education
                             </a>
@@ -77,7 +77,7 @@
                         <!-- End Education -->
 
                         <!-- Work -->                        
-                        <li id="work">
+                        <li id="work" data-toggle="tab">
                             <a href="javascript:void(0);" onclick=loadContent('work')>
                                 Work
                             </a>
@@ -85,8 +85,8 @@
                         <!-- End Work -->
 
                         <!-- Projects -->
-                        <li id="projects" class="list">
-                            <a id="projects_a" href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                        <li id="projects" class="list" data-toggle="tab">
+                            <a id="projects_a" href="javascript:void(0);" class="dropdown-toggle" onclick=toggleList('projects_a')>
                                 Projects
                             </a>
                             <ul class="dropdown-menu">
@@ -97,8 +97,8 @@
                         <!-- End Projects -->
 
                         <!-- Misc Pages -->
-                        <li id="misc" class="list">
-                            <a id="misc_a" href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                        <li id="misc" class="list" data-toggle="tab">
+                            <a id="misc_a" href="javascript:void(0);" class="dropdown-toggle" onclick=toggleList('misc_a')>
                                 Misc
                             </a>
                             <ul class="dropdown-menu">
@@ -110,7 +110,7 @@
                         <!-- End Misc Pages -->
 
                         <!-- Resume -->
-                        <li id="resume">
+                        <li id="resume" data-toggle="tab">
                             <a href="javascript:void(0);" onclick=loadContent('resume')>
                                 Resume
                             </a>
@@ -118,7 +118,7 @@
                         <!-- End Resume -->
 
                         <!-- Blog -->
-                        <li id="blog">
+                        <li id="blog" data-toggle="tab">
                             <a href="javascript:void(0);" onclick=loadContent('blog')>
                                 Blog
                             </a>
@@ -126,7 +126,7 @@
                         <!-- End Blog -->
 
                         <!-- About Me -->
-                        <li id="about">
+                        <li id="about" data-toggle="tab">
                             <a href="javascript:void(0);" onclick=loadContent('about')>
                                 About me
                             </a>
@@ -205,35 +205,30 @@
                 document.getElementById("content").innerHTML = "<h1>default index</h1>";
                 break;
         }
+    }
 
-        if (name!="") {
-            var pre_clicked = $.cookie('pre_clicked');
-            /*reset previous clicked*/
-            //reset parent if existed
-            if (pre_clicked == 'research_projects' || pre_clicked == 'academic_projects') {
-                document.getElementById('projects').setAttribute('class','list');
-                document.getElementById('projects_a').setAttribute('aria-expanded',false);
-            } 
-            else if (pre_clicked == 'publications' || pre_clicked == 'honors' || pre_clicked == 'certificates') {
-                document.getElementById('misc').setAttribute('class','list');
-                document.getElementById('misc_a').setAttribute('aria-expanded',false);
-            }
-            //reset item
-            document.getElementById(pre_clicked).setAttribute('class','');
-            
-            /*set current item*/
-            if (name == 'research_projects' || name == 'academic_projects') {
-                document.getElementById('projects').setAttribute('class','list open');
-                document.getElementById('projects_a').setAttribute('aria-expanded',true);
-            } 
-            else if (name == 'publications' || name == 'honors' || name == 'certificates') {
-                document.getElementById('misc').setAttribute('class','list open');
-                document.getElementById('misc_a').setAttribute('aria-expanded',true);
-            }
-            document.getElementById(name).setAttribute('class','active');
-            
-            //save current item
-            $.cookie('pre_clicked',name);
+    function toggleList(list){
+        switch (list) {
+            case 'projects_a':
+                if (document.getElementById('projects').getAttribute('class') != 'list open active' && document.getElementById('projects').getAttribute('class') != 'list open'){
+                    document.getElementById('projects').setAttribute('class','list open active');
+                    document.getElementById('projects_a').setAttribute('aria-expanded',true);
+                }
+                else {
+                    document.getElementById('projects').setAttribute('class','list');
+                    document.getElementById('projects_a').setAttribute('aria-expanded',false);
+                }
+                break;
+            case 'misc_a':
+                if (document.getElementById('misc').getAttribute('class') != 'list open active' && document.getElementById('misc').getAttribute('class') != 'list open'){
+                    document.getElementById('misc').setAttribute('class','list open active');
+                    document.getElementById('misc_a').setAttribute('aria-expanded',true);
+                }
+                else {
+                    document.getElementById('misc').setAttribute('class','list');
+                    document.getElementById('misc_a').setAttribute('aria-expanded',false);
+                }
+                break;
         }
     }
   
@@ -246,7 +241,7 @@
         App.initAnimateDropdown();
         OwlCarousel.initOwlCarousel();
         ProgressBar.initProgressBarHorizontal();
-        loadContent($.cookie('pre_clicked'));
+        loadContent();
     });
 </script>
 
