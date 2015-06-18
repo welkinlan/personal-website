@@ -31,7 +31,12 @@
     <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="assets/plugins/fancybox/source/jquery.fancybox.css">    
+    <link rel="stylesheet" href="assets/plugins/fancybox/source/jquery.fancybox.css">   
+    <!-- CSS Page Style -->
+    <link rel="stylesheet" href="assets/css/pages/profile.css">
+    <link rel="stylesheet" href="assets/css/pages/shortcode_timeline2.css"> 
+    <link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">    
+    <link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">   
 
     <!-- CSS Customization -->
     <link rel="stylesheet" href="assets/css/custom.css">
@@ -39,119 +44,189 @@
 
 <body>    
 
-<div class="wrapper">
-    <!--=== Header v7 Left ===-->
-    <div class="header-v7 header-left-v7">
-        <nav class="navbar navbar-default mCustomScrollbar" role="navigation" data-mcs-theme="minimal-dark">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="menu-container">
-                <!-- Toggle get grouped for better mobile display -->
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- End Toggle -->
-
-                <!-- Logo -->
-                <div class="logo">
-                    <a href="index.html">
-                        <img id="logo-header" src="assets/img/avatar.jpg" alt="Logo">
-                    </a>
-                    <h2 class="headline-brd">Tian Lan's Portfilio</h2>
-                </div>
-                <!-- End Logo -->
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-responsive-collapse">
+    <div class="wrapper profile">
+        <!--=== Header v7 Left ===-->
+        <div class="header-v7 header-left-v7">
+            <nav class="navbar navbar-default mCustomScrollbar" role="navigation" data-mcs-theme="minimal-dark">
+                <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="menu-container">
-                    <ul class="nav navbar-nav">
-                        <!-- Education -->
-                        <li id="education" data-toggle="tab">
-                            <a href="javascript:void(0);" onclick=loadContent('education')>
-                                Education
-                            </a>
-                        </li>
-                        <!-- End Education -->
+                    <!-- Toggle get grouped for better mobile display -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- End Toggle -->
 
-                        <!-- Work -->                        
-                        <li id="work" data-toggle="tab">
-                            <a href="javascript:void(0);" onclick=loadContent('work')>
-                                Work
-                            </a>
-                        </li>
-                        <!-- End Work -->
+                    <!-- Logo -->
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/img/avatars.jpg" alt="Logo">
+                        </a>
+                        <h2 class="headline-brd"></h2>
+                    </div>
+                    <!-- End Logo -->
+                </div>
 
-                        <!-- Projects -->
-                        <li id="projects" class="list" data-toggle="tab">
-                            <a id="projects_a" href="javascript:void(0);" class="dropdown-toggle" onclick=toggleList('projects_a')>
-                                Projects
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li id="research_projects"><a href="javascript:void(0);" onclick=loadContent('research_projects')>Research Projects</a></li>
-                                <li id="academic_projects"><a href="javascript:void(0);" onclick=loadContent('academic_projects')>Academic Projects</a></li>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav">
+                            <!-- Education -->
+                            <li id="education" data-toggle="tab">
+                                <a href="javascript:void(0);" onclick=loadContent('education')>
+                                    Education
+                                </a>
+                            </li>
+                            <!-- End Education -->
+
+                            <!-- Work -->                        
+                            <li id="work" data-toggle="tab">
+                                <a href="javascript:void(0);" onclick=loadContent('work')>
+                                    Work
+                                </a>
+                            </li>
+                            <!-- End Work -->
+
+                            <!-- Projects -->
+                            <li id="projects" data-toggle="tab">
+                                <a href="javascript:void(0);" onclick=loadContent('projects')>
+                                    Projects
+                                </a>
+                            </li>
+                            <!-- End Projects -->
+
+                            <!-- Misc Pages -->
+                            <li id="misc" data-toggle="tab">
+                                <a href="javascript:void(0);" onclick=loadContent('misc')>
+                                    Misc
+                                </a>
+                            </li>                    
+                            <!-- End Misc Pages -->
+
+                            <!-- Resume -->
+                            <li id="resume" data-toggle="tab">
+                                <a href="javascript:void(0);" onclick=loadContent('resume')>
+                                    Resume
+                                </a>
+                            </li>                    
+                            <!-- End Resume -->
+
+                            <!-- Blog -->
+                            <li id="blog" data-toggle="tab">
+                                <a href="javascript:void(0);" onclick=loadContent('blog')>
+                                    Blog
+                                </a>
+                            </li>                    
+                            <!-- End Blog -->
+
+                            <!-- About Me -->
+                            <li id="about" data-toggle="tab">
+                                <a href="javascript:void(0);" onclick=loadContent('about')>
+                                    About me
+                                </a>
+                            </li>                    
+                            <!-- End About Me -->
+                        </ul>
+
+                        <ul class="list-inline header-socials">
+                            <li><a href="https://www.linkedin.com/pub/tian-lan/62/a4/b68"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="https://github.com/welkinlan"><i class="fa fa-github"></i></a></li>
+                            <br>
+                            <li><a href="https://www.facebook.com/welkin.lan"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://instagram.com/welkinlan/"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="https://twitter.com/welkinlan"><i class="fa fa-twitter"></i></a></li>
+                        </ul>
+                        <p class="copyright-text">&copy; 2015 Welkin Lan.</p>
+                    </div>  
+                </div>
+                <!-- End Navbar Collapse -->
+            </nav>
+        </div>    
+        <!--=== End Header v7 Left ===-->
+
+        <!--=== Content Side Left Right ===-->
+        <div id="content" class="content-side-right">
+            <div class="profile-body">
+                <div class="profile-bio">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>Tian Lan</h2>
+                            <span><strong>Job:</strong> Graduate Student</span>
+                            <span><strong>Position:</strong> Web Designer</span>
+                            <hr>
+                            <p>some good words</p>
+                            <p>some nice sentences</p>
+                        </div>
+                    </div>    
+                </div><!--/end row-->
+
+                <hr>
+
+                <div class="row">
+                    <!--Social Icons v3-->
+                    <div class="col-sm-6 sm-margin-bottom-30">
+                        <div class="panel panel-profile">
+                            <div class="panel-heading overflow-h">
+                                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i> Social Contacts <small>(option 1)</small></h2>
+                                <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                            </div>
+                            <div class="panel-body">
+                               <ul class="list-unstyled social-contacts-v2">
+                                <li><i class="rounded-x tw fa fa-twitter"></i> <a href="#">edward.rooster</a></li>
+                                <li><i class="rounded-x fb fa fa-facebook"></i> <a href="#">Edward Rooster</a></li>
+                                <li><i class="rounded-x sk fa fa-skype"></i> <a href="#">edwardRooster77</a></li>
+                                <li><i class="rounded-x gp fa fa-google-plus"></i> <a href="#">rooster77edward</a></li>
+                                <li><i class="rounded-x gm fa fa-envelope"></i> <a href="#">edward77@gmail.com</a></li>
                             </ul>
-                        </li>
-                        <!-- End Projects -->
+                        </div>       
+                    </div>
+                </div>
+                <!--End Social Icons v3-->
 
-                        <!-- Misc Pages -->
-                        <li id="misc" class="list" data-toggle="tab">
-                            <a id="misc_a" href="javascript:void(0);" class="dropdown-toggle" onclick=toggleList('misc_a')>
-                                Misc
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li id="publications"><a href="javascript:void(0);" onclick=loadContent('publications')>Publications</a></li>
-                                <li id="honors"><a href="javascript:void(0);" onclick=loadContent('honors')>Honors</a></li>
-                                <li id="certificates"><a href="javascript:void(0);" onclick=loadContent('certificates')>Certificates</a></li>
-                            </ul>
-                        </li>                    
-                        <!-- End Misc Pages -->
+                <!--Skills-->
+                <div class="col-sm-6 sm-margin-bottom-30">
+                    <div class="panel panel-profile">
+                        <div class="panel-heading overflow-h">
+                            <h2 class="panel-title heading-sm pull-left"><i class="fa fa-lightbulb-o"></i> Skills</h2>
+                            <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                        </div>
+                        <div class="panel-body">
+                            <small>HTML/CSS</small>
+                            <small>92%</small>
+                            <div class="progress progress-u progress-xxs">
+                                <div style="width: 92%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar" class="progress-bar progress-bar-u">
+                                </div>
+                            </div>
 
-                        <!-- Resume -->
-                        <li id="resume" data-toggle="tab">
-                            <a href="javascript:void(0);" onclick=loadContent('resume')>
-                                Resume
-                            </a>
-                        </li>                    
-                        <!-- End Resume -->
+                            <small>Photoshop</small>
+                            <small>77%</small>
+                            <div class="progress progress-u progress-xxs">
+                                <div style="width: 77%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="77" role="progressbar" class="progress-bar progress-bar-u">
+                                </div>
+                            </div>
 
-                        <!-- Blog -->
-                        <li id="blog" data-toggle="tab">
-                            <a href="javascript:void(0);" onclick=loadContent('blog')>
-                                Blog
-                            </a>
-                        </li>                    
-                        <!-- End Blog -->
+                            <small>PHP</small>
+                            <small>85%</small>
+                            <div class="progress progress-u progress-xxs">
+                                <div style="width: 85%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar" class="progress-bar progress-bar-u">
+                                </div>
+                            </div>
 
-                        <!-- About Me -->
-                        <li id="about" data-toggle="tab">
-                            <a href="javascript:void(0);" onclick=loadContent('about')>
-                                About me
-                            </a>
-                        </li>                    
-                        <!-- End About Me -->
-                    </ul>
-
-                    <ul class="list-inline header-socials">
-                        <li><a href="https://www.linkedin.com/pub/tian-lan/62/a4/b68"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="https://github.com/welkinlan"><i class="fa fa-github"></i></a></li>
-                        <br>
-                        <li><a href="https://www.facebook.com/welkin.lan"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://instagram.com/welkinlan/"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="https://twitter.com/welkinlan"><i class="fa fa-twitter"></i></a></li>
-                    </ul>
-                    <p class="copyright-text">&copy; 2015 Welkin Lan.</p>
-                </div>  
-            </div>
-            <!-- End Navbar Collapse -->
-        </nav>
-    </div>    
-    <!--=== End Header v7 Left ===-->
-
-    <!--=== Content Side Left Right ===-->
-    <div id="content" class="content-side-right">
+                            <small>Javascript</small>
+                            <small>81%</small>
+                            <div class="progress progress-u progress-xxs">
+                                <div style="width: 81%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="81" role="progressbar" class="progress-bar progress-bar-u">
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </div>    
+                <!--End Skills-->            
+            </div><!--/end row-->    
+        </div>
+        <!-- End Profile Content -->
     </div>
     <!--=== End Content Side Left Right ===-->
 </div><!--/wrapper-->
@@ -170,6 +245,7 @@
 <script type="text/javascript" src="assets/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
 <script type="text/javascript" src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
 <script type="text/javascript" src="assets/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
 <!-- JS Customization -->
 <script type="text/javascript" src="assets/js/custom.js"></script>
 <!-- JS Page Level -->           
@@ -177,23 +253,22 @@
 <script type="text/javascript" src="assets/js/plugins/fancy-box.js"></script>
 <script type="text/javascript" src="assets/js/plugins/progress-bar.js"></script>
 <script type="text/javascript" src="assets/js/plugins/owl-carousel.js"></script>
-<script type="text/javascript" src="assets/plugins/jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="assets/js/plugins/cube-portfolio/cube-portfolio-lightbox.js"></script>
 
 <script type="text/javascript">
     function loadContent(name){
         switch (name) {
             case 'education':
             case 'work':
-            case 'research_projects':
-            case 'academic_projects':
-            case 'publications':
-            case 'honors':
-            case 'certificates':
+            case 'projects':
+            case 'misc':
             case 'about':
                 $("#content").load(name + ".html");
                 break;
             case 'resume':
                 //load pdf
+                document.getElementById("content").innerHTML = 
+                "<iframe src='http://docs.google.com/gview?url=http://welkinlan.com/doc/resume.pdf&embedded=true' width='100%' style='height:60em;' frameborder='0'></iframe>";
                 break;
             case 'blog':
                 //load external website
@@ -201,55 +276,20 @@
                 "<iframe src='http://blog.welkinlan.com' width='100%' style='height: 60em; border: none'></iframe>";
                 break;
             default:
-                //default index
-                document.getElementById("content").innerHTML = "<h1>default index</h1>";
                 break;
         }
     }
 
-    function toggleList(list){
-        switch (list) {
-            case 'projects_a':
-                if (document.getElementById('projects').getAttribute('class') != 'list open active' && document.getElementById('projects').getAttribute('class') != 'list open'){
-                    document.getElementById('projects').setAttribute('class','list open active');
-                    document.getElementById('projects_a').setAttribute('aria-expanded',true);
-                }
-                else {
-                    document.getElementById('projects').setAttribute('class','list');
-                    document.getElementById('projects_a').setAttribute('aria-expanded',false);
-                }
-                break;
-            case 'misc_a':
-                if (document.getElementById('misc').getAttribute('class') != 'list open active' && document.getElementById('misc').getAttribute('class') != 'list open'){
-                    document.getElementById('misc').setAttribute('class','list open active');
-                    document.getElementById('misc_a').setAttribute('aria-expanded',true);
-                }
-                else {
-                    document.getElementById('misc').setAttribute('class','list');
-                    document.getElementById('misc_a').setAttribute('aria-expanded',false);
-                }
-                break;
-        }
-    }
-  
     jQuery(document).ready(function() {
         App.init();
-        App.initCounter();
-        App.initParallaxBg();
-        App.initScrollBar();
-        FancyBox.initFancybox();        
-        App.initAnimateDropdown();
-        OwlCarousel.initOwlCarousel();
-        ProgressBar.initProgressBarHorizontal();
-        loadContent();
     });
-</script>
+    </script>
 
 <!--[if lt IE 9]>
     <script src="assets/plugins/respond.js"></script>
     <script src="assets/plugins/html5shiv.js"></script>
     <script src="assets/plugins/placeholder-IE-fixes.js"></script>
-<![endif]-->
+    <![endif]-->
 
 </body>
 </html>
