@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Welcome to MAC!</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/mycss.css" rel="stylesheet">
+    
+    <script type="text/javascript">
+		function renewHover(i){
+			if(i==1){
+				document.getElementById('chinese-circle').src="img/chinese-circle-hover.png";
+			}
+			else if(i==2){
+				document.getElementById('european-circle').src="img/european-circle-hover.png";
+			}
+			else{
+				document.getElementById('eastern-circle').src="img/eastern-circle-hover.png";
+			}
+		}
+
+		function renewBack(i){
+			if(i==1){
+				document.getElementById('chinese-circle').src="img/chinese-circle.png";
+			}
+			else if(i==2){
+				document.getElementById('european-circle').src="img/european-circle.png";
+			}
+			else{
+				document.getElementById('eastern-circle').src="img/eastern-circle.png";
+			}
+
+		}
+	</script>
+  </head>
+  
+  <body background="img/hexagon.png">
+  	<div class="container navbar-wrapper" style="margin-top: 20px;">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <img class="brand" src="img/Logo-trans.png" class="img-polaroid"/>
+        </div><!-- /.navbar-inner -->
+      </div><!-- /.navbar -->
+    </div><!-- /.container -->
+    
+    <div class="container">
+        <a href="about.html"><button class="pull-right btn-success btn-large">Time & Fees</button></a>
+    </div>
+    <div class="container">
+    	<a  href="chinese.html">
+    		<img src="img/chinese-circle.png" class="img-circle" id="chinese-circle" onmouseout="renewBack(1);" onmouseover="renewHover(1);"/>
+    	</a>	
+    	<a  href="european.html">
+    		<img href="chinese-artefects.html" src="img/european-circle.png" class="img-circle" id="european-circle" onmouseout="renewBack(2);" onmouseover="renewHover(2);"/>
+    	</a>
+    	<a  href="eastern.html">
+    		<img href="chinese-artefects.html" src="img/eastern-circle.png" class="img-circle" id="eastern-circle" onmouseout="renewBack(3);" onmouseover="renewHover(3);"/>
+    	</a>
+    </div>
+  	
+  </body>
+</html>
