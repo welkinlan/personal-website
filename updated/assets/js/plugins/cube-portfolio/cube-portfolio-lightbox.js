@@ -15,7 +15,7 @@
         scrollByPage: false,
         mediaQueries: [{
             width: 1100,
-            cols: 3
+            cols: 4
         }, {
             width: 800,
             cols: 3
@@ -27,11 +27,11 @@
             cols: 1
         }],
         defaultFilter: '*',
-        animationType: 'rotateSides',
-        gapHorizontal: 10,
-        gapVertical: 10,
+        animationType: 'fadeOutTop',
+        gapHorizontal: 50,
+        gapVertical: 50,
         gridAdjustment: 'responsive',
-        caption: 'overlayBottomPush',
+        caption: 'overlayRightAlong',
         displayType: 'sequentially',
         displayTypeSpeed: 100,
 
@@ -46,6 +46,22 @@
         singlePageStickyNavigation: true,
         singlePageCallback: function(url, element) {
             // to update singlePage content use the following method: this.updateSinglePage(yourContent)
+            var t = this;
+
+            $.ajax({
+                    url: url,
+                    type: 'GET',
+                    dataType: 'html',
+                    timeout: 5000
+                })
+                .done(function(result) {
+
+                    t.updateSinglePage(result);
+
+                })
+                .fail(function() {
+                    t.updateSinglePage("Error! Please refresh the page!");
+                });
         },
 
         // singlePageInline
