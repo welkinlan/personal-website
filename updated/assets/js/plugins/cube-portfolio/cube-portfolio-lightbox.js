@@ -14,16 +14,16 @@
         rewindNav: true,
         scrollByPage: false,
         mediaQueries: [{
-            width: 1100,
+            width: 1000,
             cols: 4
         }, {
-            width: 800,
+            width: 750,
             cols: 3
         }, {
-            width: 500,
+            width: 450,
             cols: 2
         }, {
-            width: 320,
+            width: 100,
             cols: 1
         }],
         defaultFilter: '*',
@@ -31,7 +31,7 @@
         gapHorizontal: 50,
         gapVertical: 50,
         gridAdjustment: 'responsive',
-        caption: 'overlayRightAlong',
+        caption: 'revealBottom',
         displayType: 'sequentially',
         displayTypeSpeed: 100,
 
