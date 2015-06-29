@@ -14,16 +14,13 @@
         rewindNav: true,
         scrollByPage: false,
         mediaQueries: [{
-            width: 1000,
-            cols: 4
-        }, {
-            width: 750,
+            width: 600,
             cols: 3
         }, {
-            width: 450,
+            width: 400,
             cols: 2
         }, {
-            width: 100,
+            width: 250,
             cols: 1
         }],
         defaultFilter: '*',
