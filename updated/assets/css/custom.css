@@ -2,3 +2,9 @@
 .content-no-padding{
 	padding: 0;
 }
+
+img.img-center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto 
+}
